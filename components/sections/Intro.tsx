@@ -73,7 +73,7 @@ export default function Intro() {
           </div>
           <FadeUp delay={0.2} className="mt-6 max-w-[520px]">
             <p className="flex items-baseline justify-between text-[11px] tracking-[0.2em] text-charcoal/50 uppercase">
-              <span>The atelier, Brickell</span>
+              <span>The studio, Brickell</span>
               <span className="serif-italic font-serif text-sm normal-case tracking-normal text-rose-deep">
                 fig. 01
               </span>
@@ -103,7 +103,7 @@ export default function Intro() {
 
           <WordsReveal
             delay={0.3}
-            text="AUREA is a private lash and brow atelier where precision meets softness. Every set is mapped to the architecture of your face — nothing extra, everything considered."
+            text="AUREA GLOW is a private lash and brow studio where precision meets softness. Every set is mapped to the architecture of your face — nothing extra, everything considered."
             className="mt-10 max-w-xl font-serif text-2xl leading-snug text-charcoal/80 md:text-[1.7rem]"
           />
 

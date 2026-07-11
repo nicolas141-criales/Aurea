@@ -62,15 +62,21 @@ export default function Preloader() {
         {LETTERS.map((letter, i) => (
           <span
             key={i}
-            className="pre-letter display translate-y-[115%] text-[16vw] leading-none text-charcoal md:text-[9vw]"
+            className="pre-letter display text-foil glow-drop translate-y-[115%] text-[16vw] leading-none md:text-[9vw]"
           >
             {letter}
           </span>
         ))}
       </div>
-      <div className="pre-line mt-6 h-px w-40 origin-left scale-x-0 bg-rosegold md:w-56" />
-      <p className="pre-tag eyebrow mt-5 translate-y-3 text-charcoal/60 opacity-0">
-        Lash &amp; Brow Atelier — Miami
+      <div className="pre-line mt-6 h-px w-40 origin-left scale-x-0 bg-gold md:w-56" />
+      <p
+        className="pre-tag mt-5 translate-y-3 text-[12px] font-semibold tracking-[0.6em] text-gold uppercase opacity-0"
+        translate="no"
+      >
+        Glow
+      </p>
+      <p className="pre-tag eyebrow mt-3 translate-y-3 text-charcoal/50 opacity-0">
+        Beauty Studio — Miami
       </p>
     </div>
   );

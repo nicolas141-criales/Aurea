@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { MapPin } from "lucide-react";
 import { studio } from "@/lib/data";
 import { FadeUp } from "@/components/ui/AnimatedText";
+import Monogram from "@/components/visuals/Monogram";
 
 /* minimal hand-drawn brand marks — lucide dropped its brand icons */
 const InstagramMark = () => (
@@ -40,8 +41,9 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-14 border-b border-ivory/10 pb-20 md:grid-cols-12">
           <div className="md:col-span-5">
             <FadeUp>
+              <Monogram className="glow-drop mb-8 h-16 w-16 text-glow" strokeWidth={3.5} />
               <p className="display max-w-[16ch] text-3xl leading-snug text-ivory/90 md:text-4xl">
-                A private atelier for lashes &amp; brows in the heart of <em>Miami</em>.
+                A private beauty studio for lashes &amp; brows in the heart of <em>Miami</em>.
               </p>
             </FadeUp>
             <FadeUp delay={0.15}>
@@ -104,6 +106,13 @@ export default function Footer() {
 
         {/* giant wordmark, clipped at the fold */}
         <div className="relative overflow-hidden pt-10">
+          <p
+            aria-hidden
+            translate="no"
+            className="glow-text mb-2 text-center text-[13px] font-semibold tracking-[0.9em] text-glow uppercase"
+          >
+            Glow
+          </p>
           <motion.p
             aria-hidden
             translate="no"
@@ -118,7 +127,7 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-col items-center justify-between gap-4 border-t border-ivory/10 py-8 text-[11px] tracking-[0.14em] text-ivory/35 uppercase md:flex-row">
-          <p>© {new Date().getFullYear()} AUREA Atelier — Miami</p>
+          <p>© {new Date().getFullYear()} AUREA GLOW Beauty Studio — Miami</p>
           <p>
             Lashes that speak <span className="serif-italic font-serif normal-case">before you do</span>
           </p>

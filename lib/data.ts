@@ -158,8 +158,8 @@ export const testimonials: Testimonial[] = [
 ];
 
 export const studio = {
-  name: "AUREA",
-  tagline: "Lash & Brow Atelier",
+  name: "AUREA GLOW",
+  tagline: "Beauty Studio",
   city: "Miami",
   address: "2110 Brickell Avenue, Suite 3",
   addressLine2: "Miami, FL 33129",

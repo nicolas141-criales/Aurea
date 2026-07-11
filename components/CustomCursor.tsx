@@ -52,7 +52,7 @@ export default function CustomCursor() {
       if (mode === "drag" || mode === "view") {
         gsap.to(ring, {
           scale: 2.6,
-          backgroundColor: "rgba(207,165,181,0.92)",
+          backgroundColor: "rgba(206,149,132,0.92)",
           borderColor: "transparent",
           duration: 0.45,
           ease: "power3.out",
@@ -65,8 +65,8 @@ export default function CustomCursor() {
       } else if (mode === "hover") {
         gsap.to(ring, {
           scale: 1.7,
-          backgroundColor: "rgba(207,165,181,0.18)",
-          borderColor: "rgba(207,165,181,0.9)",
+          backgroundColor: "rgba(206,149,132,0.18)",
+          borderColor: "rgba(206,149,132,0.9)",
           duration: 0.4,
           ease: "power3.out",
         });
@@ -75,8 +75,8 @@ export default function CustomCursor() {
       } else {
         gsap.to(ring, {
           scale: 1,
-          backgroundColor: "rgba(207,165,181,0)",
-          borderColor: "rgba(42,36,38,0.35)",
+          backgroundColor: "rgba(206,149,132,0)",
+          borderColor: "rgba(59,46,38,0.35)",
           duration: 0.4,
           ease: "power3.out",
         });

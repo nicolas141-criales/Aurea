@@ -2,7 +2,7 @@
 
 import { motion, useReducedMotion, type Variants } from "framer-motion";
 
-export type Segment = { text: string; italic?: boolean };
+export type Segment = { text: string; italic?: boolean; foil?: boolean };
 
 const charVariants: Variants = {
   hidden: { y: "115%", rotate: 6, opacity: 0 },
@@ -74,13 +74,15 @@ export function CharsTitle({
             <span
               key={`${si}-${wi}`}
               aria-hidden
-              className={`inline-block whitespace-nowrap ${seg.italic ? "serif-italic" : ""}`}
+              className={`inline-block whitespace-nowrap ${seg.italic ? "serif-italic" : ""} ${
+                seg.foil ? "glow-drop" : ""
+              }`}
             >
               {word.split("").map((char) => (
                 <span key={charIndex++} className="inline-block overflow-hidden align-bottom">
                   <motion.span
                     variants={reduced ? undefined : charVariants}
-                    className="inline-block will-change-transform"
+                    className={`inline-block will-change-transform ${seg.foil ? "text-foil" : ""}`}
                   >
                     {char}
                   </motion.span>

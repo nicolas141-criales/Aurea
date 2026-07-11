@@ -54,7 +54,7 @@ export default function StickyBook() {
         >
           <a
             href="#book"
-            className="glass flex w-full items-center justify-center gap-3 rounded-full py-4 text-[12px] font-semibold tracking-[0.2em] text-charcoal uppercase"
+            className="glass glow-box flex w-full items-center justify-center gap-3 rounded-full py-4 text-[12px] font-semibold tracking-[0.2em] text-charcoal uppercase"
           >
             <span className="h-2 w-2 rounded-full bg-rose-deep" />
             Book Appointment

@@ -8,6 +8,8 @@ import { ArrowDown } from "lucide-react";
 import Magnetic from "@/components/ui/Magnetic";
 import { CharsTitle } from "@/components/ui/AnimatedText";
 import EditorialVisual from "@/components/visuals/EditorialVisual";
+import Monogram from "@/components/visuals/Monogram";
+import Sparkle from "@/components/visuals/Sparkle";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -104,9 +106,22 @@ export default function Hero() {
     >
       {/* ambient gradient field */}
       <div aria-hidden className="absolute inset-0">
-        <div className="animate-drift absolute -left-[15%] -top-[25%] h-[70vmax] w-[70vmax] rounded-full bg-[radial-gradient(circle,#e7d0da_0%,transparent_65%)]" />
-        <div className="animate-drift-slow absolute -bottom-[30%] -right-[10%] h-[65vmax] w-[65vmax] rounded-full bg-[radial-gradient(circle,#dca9a0_0%,transparent_62%)] opacity-70" />
-        <div className="hero-light absolute left-1/2 top-1/2 h-[60vmax] w-[60vmax] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.55)_0%,transparent_60%)] mix-blend-soft-light" />
+        <div className="animate-drift absolute -left-[15%] -top-[25%] h-[70vmax] w-[70vmax] rounded-full bg-[radial-gradient(circle,#ebd2c4_0%,transparent_65%)]" />
+        <div className="animate-drift-slow absolute -bottom-[30%] -right-[10%] h-[65vmax] w-[65vmax] rounded-full bg-[radial-gradient(circle,#e3bc9c_0%,transparent_62%)] opacity-70" />
+        <div className="hero-light absolute left-1/2 top-1/2 h-[60vmax] w-[60vmax] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(250,224,185,0.6)_0%,transparent_60%)] mix-blend-soft-light" />
+      </div>
+
+      {/* brand sparkles */}
+      <div aria-hidden className="absolute inset-0">
+        <Sparkle className="animate-twinkle glow-drop absolute left-[46%] top-[16%] h-5 w-5 text-gold" />
+        <Sparkle
+          className="animate-twinkle glow-drop absolute left-[7%] bottom-[24%] h-3 w-3 text-rosegold"
+          style={{ animationDelay: "1.4s" }}
+        />
+        <Sparkle
+          className="animate-twinkle glow-drop absolute right-[36%] bottom-[14%] h-4 w-4 text-gold-light"
+          style={{ animationDelay: "2.3s" }}
+        />
       </div>
 
       {/* floating particles */}
@@ -137,7 +152,12 @@ export default function Hero() {
           className="absolute -left-10 top-10 h-full w-full rounded-t-full border border-rose/50"
         />
         <div data-depth="1.5" className="absolute inset-0">
-          <EditorialVisual variant={0} arch arcs className="h-full w-full shadow-luxe" />
+          <EditorialVisual variant={0} arch arcs className="h-full w-full shadow-luxe">
+            {/* backlit monogram — the storefront sign */}
+            <div className="absolute inset-x-0 top-[14%] z-10 flex justify-center">
+              <Monogram className="glow-drop h-28 w-28 text-glow xl:h-32 xl:w-32" strokeWidth={2.5} />
+            </div>
+          </EditorialVisual>
         </div>
         <div
           data-depth="4"
@@ -162,7 +182,7 @@ export default function Hero() {
           className="eyebrow mb-8 flex items-center gap-4 text-charcoal/60"
         >
           <span className="inline-block h-px w-12 bg-rosegold" />
-          Lash &amp; Brow Atelier — Miami
+          Aurea Glow — Beauty Studio, Miami
         </motion.p>
 
         <div data-depth="0.6">
@@ -172,7 +192,7 @@ export default function Hero() {
             delay={0.25}
             segments={[
               { text: "Lashes that " },
-              { text: "speak", italic: true },
+              { text: "speak", italic: true, foil: true },
               { text: " before you do." },
             ]}
             className="display max-w-[12ch] text-[13vw] text-charcoal md:text-[8.5vw]"
@@ -185,8 +205,8 @@ export default function Hero() {
           transition={{ duration: 1, delay: 1.15, ease: [0.19, 1, 0.22, 1] }}
           className="mt-10 max-w-md text-[15px] leading-relaxed text-charcoal/65 md:text-base"
         >
-          A private atelier in Brickell. Bespoke artistry, one client at a time — and the quiet
-          luxury of waking up ready.
+          A private beauty studio in Brickell. Bespoke artistry, one client at a time — and the
+          quiet luxury of waking up glowing.
         </motion.p>
 
         <motion.div
@@ -196,7 +216,7 @@ export default function Hero() {
           className="mt-12 flex flex-wrap items-center gap-5"
         >
           <Magnetic>
-            <a href="#book" className="btn-luxe btn-dark px-9 py-4">
+            <a href="#book" className="btn-luxe btn-dark btn-glow px-9 py-4">
               Book Appointment
             </a>
           </Magnetic>

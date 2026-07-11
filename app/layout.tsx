@@ -18,9 +18,9 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "AUREA — Luxury Lash & Brow Atelier in Miami",
+  title: "AUREA GLOW — Beauty Studio in Miami",
   description:
-    "A private lash and brow atelier in Brickell, Miami. Bespoke lash extensions, lifts and brow artistry — the quiet luxury of waking up ready.",
+    "A private lash and brow beauty studio in Brickell, Miami. Bespoke lash extensions, lifts and brow artistry — the quiet luxury of waking up ready.",
   keywords: [
     "lash extensions Miami",
     "brow lamination Miami",
@@ -29,21 +29,21 @@ export const metadata: Metadata = {
     "lash lift Miami",
   ],
   openGraph: {
-    title: "AUREA — Luxury Lash & Brow Atelier in Miami",
+    title: "AUREA GLOW — Beauty Studio in Miami",
     description:
-      "Bespoke lash and brow artistry in a private Brickell atelier. Lashes that speak before you do.",
+      "Bespoke lash and brow artistry in a private Brickell studio. Lashes that speak before you do.",
     type: "website",
     locale: "en_US",
-    siteName: "AUREA",
+    siteName: "AUREA GLOW",
   },
 };
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "BeautySalon",
-  name: "AUREA Lash & Brow Atelier",
+  name: "AUREA GLOW Beauty Studio",
   description:
-    "Private luxury lash and brow studio in Brickell, Miami offering bespoke lash extensions, lash lifts and brow artistry.",
+    "Private luxury lash and brow beauty studio in Brickell, Miami offering bespoke lash extensions, lash lifts and brow artistry.",
   address: {
     "@type": "PostalAddress",
     streetAddress: "2110 Brickell Avenue, Suite 3",

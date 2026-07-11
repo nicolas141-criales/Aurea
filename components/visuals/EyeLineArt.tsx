@@ -37,7 +37,7 @@ export default function EyeLineArt({
   lashCount = 9,
   lashLength = 26,
   curl = 0.25,
-  stroke = "#2a2426",
+  stroke = "#3b2e26",
   strokeWidth = 2,
   withBrow = true,
   className,

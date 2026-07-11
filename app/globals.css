@@ -1,16 +1,19 @@
 @import "tailwindcss";
 
 :root {
-  --rose: #cfa5b5;
-  --rose-light: #e7d0da;
-  --rose-mist: #f3e7ec;
-  --rose-deep: #a87890;
-  --ivory: #f8f5f3;
-  --cream: #fdfbfa;
-  --charcoal: #2a2426;
-  --charcoal-deep: #1d181a;
-  --rosegold: #b76e79;
-  --rosegold-light: #dca9a0;
+  --rose: #ce9584;
+  --rose-light: #ebd2c4;
+  --rose-mist: #f6e9df;
+  --rose-deep: #b0755f;
+  --ivory: #f5eadf;
+  --cream: #fbf5ee;
+  --charcoal: #3b2e26;
+  --charcoal-deep: #2b211b;
+  --rosegold: #c98f72;
+  --rosegold-light: #e3bc9c;
+  --gold: #c9a36b;
+  --gold-light: #ead3a8;
+  --glow: #f7ce9e;
 }
 
 @theme inline {
@@ -24,6 +27,9 @@
   --color-charcoal-deep: var(--charcoal-deep);
   --color-rosegold: var(--rosegold);
   --color-rosegold-light: var(--rosegold-light);
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-glow: var(--glow);
   --font-serif: var(--font-fraunces), "Cormorant Garamond", Georgia, serif;
   --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
   --ease-luxe: cubic-bezier(0.19, 1, 0.22, 1);
@@ -287,6 +293,83 @@ body {
   animation: pulse-ring 2.6s var(--ease-luxe) infinite;
 }
 
+/* ---------- foil & glow (backlit-signage brand language) ---------- */
+
+.text-foil {
+  background-image: linear-gradient(
+    105deg,
+    #a97655 0%,
+    #d9a98b 35%,
+    #f4ddc4 50%,
+    #cf9878 65%,
+    #a97655 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.text-foil-gold {
+  background-image: linear-gradient(
+    105deg,
+    #a8813f 0%,
+    #d4b170 35%,
+    #f3e0b4 50%,
+    #caa25c 65%,
+    #96712f 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* drop-shadow follows glyph alpha — required for foil (transparent) text */
+.glow-drop {
+  filter: drop-shadow(0 0 10px rgba(247, 206, 158, 0.55))
+    drop-shadow(0 0 36px rgba(247, 206, 158, 0.3));
+}
+
+.glow-text {
+  text-shadow:
+    0 0 16px rgba(247, 206, 158, 0.5),
+    0 0 52px rgba(247, 206, 158, 0.28);
+}
+
+.glow-box {
+  box-shadow:
+    0 0 26px -6px rgba(240, 196, 140, 0.55),
+    0 0 80px -18px rgba(240, 196, 140, 0.35);
+}
+
+.btn-glow {
+  box-shadow:
+    0 0 26px -6px rgba(240, 196, 140, 0.5),
+    0 0 80px -18px rgba(240, 196, 140, 0.35);
+  transition: box-shadow 0.6s var(--ease-luxe);
+}
+.btn-glow:hover {
+  box-shadow:
+    0 0 36px -4px rgba(240, 196, 140, 0.8),
+    0 0 120px -14px rgba(240, 196, 140, 0.55);
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: scale(0.7) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1) rotate(18deg);
+  }
+}
+
+.animate-twinkle {
+  animation: twinkle 3.2s ease-in-out infinite;
+  transform-origin: center;
+}
+
 /* ---------- glass ---------- */
 
 .glass {
@@ -307,6 +390,7 @@ body {
   .animate-drift,
   .animate-drift-slow,
   .animate-marquee,
+  .animate-twinkle,
   .pulse-ring::before {
     animation: none !important;
   }

@@ -123,7 +123,7 @@ export default function BeforeAfter() {
             style={{ "--x": 50 } as React.CSSProperties}
           >
             {/* before */}
-            <div className="grain absolute inset-0 bg-[linear-gradient(165deg,#f8f5f3_0%,#efe6e1_100%)]">
+            <div className="grain absolute inset-0 bg-[linear-gradient(165deg,#f5eadf_0%,#eee0d0_100%)]">
               <div className="flex h-full items-center justify-center p-10 md:p-16">
                 <EyeLineArt lashCount={9} lashLength={22} curl={0.12} strokeWidth={1.7} className="h-full max-h-[340px] w-auto opacity-80" />
               </div>
@@ -134,7 +134,7 @@ export default function BeforeAfter() {
 
             {/* after — clipped by the handle position */}
             <div
-              className="grain absolute inset-0 bg-[linear-gradient(160deg,#e7d0da_0%,#cfa5b5_60%,#b98ca6_100%)]"
+              className="grain absolute inset-0 bg-[linear-gradient(160deg,#ebd2c4_0%,#ce9584_60%,#b87f6a_100%)]"
               style={{ clipPath: "inset(0 0 0 calc(var(--x) * 1%))" }}
             >
               <div className="flex h-full items-center justify-center p-10 md:p-16">

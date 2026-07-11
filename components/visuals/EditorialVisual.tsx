@@ -7,22 +7,22 @@ import type { CSSProperties } from "react";
  */
 
 const recipes: string[] = [
-  // 0 — dawn rose
-  "radial-gradient(120% 90% at 20% 10%, #f3e7ec 0%, transparent 55%), radial-gradient(110% 90% at 85% 85%, #a87890 0%, transparent 60%), linear-gradient(155deg, #e7d0da 0%, #cfa5b5 58%, #b98ca6 100%)",
+  // 0 — blush dawn
+  "radial-gradient(120% 90% at 20% 10%, #f6e9df 0%, transparent 55%), radial-gradient(110% 90% at 85% 85%, #b0755f 0%, transparent 60%), linear-gradient(155deg, #ebd2c4 0%, #ce9584 58%, #b87f6a 100%)",
   // 1 — ivory silk
-  "radial-gradient(100% 80% at 75% 15%, #fdfbfa 0%, transparent 55%), radial-gradient(120% 100% at 15% 90%, #cfa5b5 0%, transparent 65%), linear-gradient(200deg, #f8f5f3 0%, #e7d0da 70%, #d8b4c3 100%)",
-  // 2 — dusk mauve
-  "radial-gradient(90% 70% at 80% 20%, #dca9a0 0%, transparent 55%), radial-gradient(130% 110% at 10% 80%, #8f6377 0%, transparent 60%), linear-gradient(160deg, #b98ca6 0%, #a87890 55%, #6e4a5c 100%)",
-  // 3 — charcoal velvet
-  "radial-gradient(80% 60% at 75% 25%, #a87890 0%, transparent 60%), radial-gradient(120% 100% at 20% 90%, #4a3a42 0%, transparent 60%), linear-gradient(165deg, #3a3036 0%, #2a2426 60%, #1d181a 100%)",
+  "radial-gradient(100% 80% at 75% 15%, #fbf5ee 0%, transparent 55%), radial-gradient(120% 100% at 15% 90%, #ce9584 0%, transparent 65%), linear-gradient(200deg, #f5eadf 0%, #ebd2c4 70%, #ddb49e 100%)",
+  // 2 — toasted caramel
+  "radial-gradient(90% 70% at 80% 20%, #e3bc9c 0%, transparent 55%), radial-gradient(130% 110% at 10% 80%, #96684f 0%, transparent 60%), linear-gradient(160deg, #c49076 0%, #b0755f 55%, #7d503c 100%)",
+  // 3 — warm velvet
+  "radial-gradient(80% 60% at 75% 25%, #b0755f 0%, transparent 60%), radial-gradient(120% 100% at 20% 90%, #4d3b2f 0%, transparent 60%), linear-gradient(165deg, #46372c 0%, #3b2e26 60%, #2b211b 100%)",
   // 4 — rose gold light
-  "radial-gradient(110% 80% at 25% 20%, #f6e8e2 0%, transparent 55%), radial-gradient(100% 90% at 85% 80%, #b76e79 0%, transparent 62%), linear-gradient(150deg, #eed3cd 0%, #dca9a0 60%, #c48d92 100%)",
-  // 5 — powder
-  "radial-gradient(100% 90% at 80% 10%, #fdfbfa 0%, transparent 50%), radial-gradient(120% 110% at 15% 85%, #b98ca6 0%, transparent 58%), linear-gradient(170deg, #f3e7ec 0%, #dfc2cf 65%, #cfa5b5 100%)",
-  // 6 — deep bloom
-  "radial-gradient(90% 80% at 20% 15%, #cfa5b5 0%, transparent 55%), radial-gradient(110% 90% at 85% 85%, #5c3f4e 0%, transparent 62%), linear-gradient(155deg, #a87890 0%, #8f6377 55%, #745061 100%)",
-  // 7 — champagne
-  "radial-gradient(120% 90% at 70% 20%, #faf3ef 0%, transparent 55%), radial-gradient(100% 90% at 10% 90%, #dca9a0 0%, transparent 60%), linear-gradient(160deg, #f8f5f3 0%, #ecd9d4 60%, #ddb8b4 100%)",
+  "radial-gradient(110% 80% at 25% 20%, #f8ece1 0%, transparent 55%), radial-gradient(100% 90% at 85% 80%, #c98f72 0%, transparent 62%), linear-gradient(150deg, #f0dbc8 0%, #e3bc9c 60%, #cfa07e 100%)",
+  // 5 — champagne powder
+  "radial-gradient(100% 90% at 80% 10%, #fbf5ee 0%, transparent 50%), radial-gradient(120% 110% at 15% 85%, #c49076 0%, transparent 58%), linear-gradient(170deg, #f6e9df 0%, #ecd3bd 65%, #ddb49e 100%)",
+  // 6 — terracotta bloom
+  "radial-gradient(90% 80% at 20% 15%, #ce9584 0%, transparent 55%), radial-gradient(110% 90% at 85% 85%, #6b4634 0%, transparent 62%), linear-gradient(155deg, #b0755f 0%, #9c6650 55%, #855544 100%)",
+  // 7 — gilded champagne
+  "radial-gradient(120% 90% at 70% 20%, #faf1e6 0%, transparent 55%), radial-gradient(100% 90% at 10% 90%, #dcb587 0%, transparent 60%), linear-gradient(160deg, #f5eadf 0%, #eed9c2 60%, #ddc09b 100%)",
 ];
 
 type Props = {
@@ -63,12 +63,12 @@ export default function EditorialVisual({
         >
           <path
             d="M60 420 C60 220 140 120 200 120 C260 120 340 220 340 420"
-            stroke={dark ? "rgba(248,245,243,0.35)" : "rgba(42,36,38,0.28)"}
+            stroke={dark ? "rgba(245,234,223,0.35)" : "rgba(59,46,38,0.28)"}
             strokeWidth="1"
           />
           <path
             d="M100 440 C100 260 155 170 200 170 C245 170 300 260 300 440"
-            stroke={dark ? "rgba(248,245,243,0.22)" : "rgba(42,36,38,0.16)"}
+            stroke={dark ? "rgba(245,234,223,0.22)" : "rgba(59,46,38,0.16)"}
             strokeWidth="1"
           />
         </svg>
@@ -78,7 +78,7 @@ export default function EditorialVisual({
           {letter}
         </span>
       )}
-      <div className="pointer-events-none absolute inset-0 shadow-[inset_0_0_120px_rgba(42,36,38,0.12)]" />
+      <div className="pointer-events-none absolute inset-0 shadow-[inset_0_0_120px_rgba(59,46,38,0.12)]" />
       {children}
     </div>
   );

@@ -16,11 +16,11 @@ const placements = [
 ];
 
 const avatarTints = [
-  "linear-gradient(135deg,#cfa5b5,#a87890)",
-  "linear-gradient(135deg,#dca9a0,#b76e79)",
-  "linear-gradient(135deg,#e7d0da,#cfa5b5)",
-  "linear-gradient(135deg,#b98ca6,#8f6377)",
-  "linear-gradient(135deg,#eed3cd,#dca9a0)",
+  "linear-gradient(135deg,#ce9584,#b0755f)",
+  "linear-gradient(135deg,#e3bc9c,#c98f72)",
+  "linear-gradient(135deg,#ebd2c4,#ce9584)",
+  "linear-gradient(135deg,#c49076,#96684f)",
+  "linear-gradient(135deg,#f0dbc8,#e3bc9c)",
 ];
 
 function Stars() {
@@ -49,8 +49,8 @@ export default function Testimonials() {
     <section className="relative overflow-hidden bg-ivory py-28 md:py-40">
       {/* soft ambient blooms behind the glass */}
       <div aria-hidden className="absolute inset-0">
-        <div className="animate-drift absolute left-[10%] top-[20%] h-[46vmax] w-[46vmax] rounded-full bg-[radial-gradient(circle,#e7d0da_0%,transparent_65%)] opacity-80" />
-        <div className="animate-drift-slow absolute bottom-[5%] right-[5%] h-[40vmax] w-[40vmax] rounded-full bg-[radial-gradient(circle,#dca9a0_0%,transparent_60%)] opacity-60" />
+        <div className="animate-drift absolute left-[10%] top-[20%] h-[46vmax] w-[46vmax] rounded-full bg-[radial-gradient(circle,#ebd2c4_0%,transparent_65%)] opacity-80" />
+        <div className="animate-drift-slow absolute bottom-[5%] right-[5%] h-[40vmax] w-[40vmax] rounded-full bg-[radial-gradient(circle,#e3bc9c_0%,transparent_60%)] opacity-60" />
       </div>
 
       <div className="relative mx-auto max-w-[1600px] px-6 md:px-12">
