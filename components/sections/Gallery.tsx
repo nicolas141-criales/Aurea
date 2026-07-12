@@ -1,13 +1,12 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { AtSign } from "lucide-react";
 import { studio } from "@/lib/data";
 import { CharsTitle, FadeUp } from "@/components/ui/AnimatedText";
-import EditorialVisual from "@/components/visuals/EditorialVisual";
+import EditorialVisual, { PHOTO_POOL } from "@/components/visuals/EditorialVisual";
 import Magnetic from "@/components/ui/Magnetic";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -18,7 +17,6 @@ type Item = {
   arch?: boolean;
   letter?: string;
   caption: string;
-  photo?: string;
 };
 
 /* hand-distributed columns — masonry that stays deliberate, not random */
@@ -30,12 +28,7 @@ const columns: Item[][] = [
   ],
   [
     { variant: 2, ratio: "aspect-[3/4.6]", letter: "a", caption: "Mauve studies" },
-    {
-      variant: 7,
-      ratio: "aspect-square",
-      caption: "Signature volume, in studio",
-      photo: "/gallery/lash-volume-cropped-v2.jpg",
-    },
+    { variant: 7, ratio: "aspect-square", caption: "Signature volume, in studio" },
     { variant: 0, ratio: "aspect-[3/4]", arch: true, caption: "The studio arch" },
   ],
   [
@@ -44,6 +37,11 @@ const columns: Item[][] = [
     { variant: 4, ratio: "aspect-[4/3.2]", caption: "Detail, lash map" },
   ],
 ];
+
+/** Deterministic photo per grid position — same on server and client render.
+ * `ci * 3` would cancel out under mod 3 (always divisible), so every row would
+ * repeat one photo across all columns; `ci + ii` staggers it diagonally instead. */
+const photoFor = (ci: number, ii: number) => PHOTO_POOL[(ci + ii) % PHOTO_POOL.length];
 
 export default function Gallery() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -120,24 +118,15 @@ export default function Gallery() {
                   >
                     <div className={`overflow-hidden ${item.arch ? "rounded-t-full" : "rounded-xl"}`}>
                       <div className="relative transition-transform duration-700 [transition-timing-function:cubic-bezier(0.19,1,0.22,1)] group-hover:scale-[1.06]">
-                        {item.photo ? (
-                          <div className={`grain relative w-full ${item.ratio}`}>
-                            <Image
-                              src={item.photo}
-                              alt={item.caption}
-                              fill
-                              sizes="(max-width: 768px) 50vw, 33vw"
-                              className="object-cover"
-                            />
-                          </div>
-                        ) : (
-                          <EditorialVisual
-                            variant={item.variant}
-                            arch={item.arch}
-                            letter={item.letter}
-                            className={`w-full ${item.ratio}`}
-                          />
-                        )}
+                        <EditorialVisual
+                          variant={item.variant}
+                          arch={item.arch}
+                          letter={item.letter}
+                          photo={photoFor(ci, ii)}
+                          photoAlt={item.caption}
+                          sizes="(max-width: 768px) 50vw, 33vw"
+                          className={`w-full ${item.ratio}`}
+                        />
                         <span className="absolute inset-0 z-10 flex items-end bg-charcoal-deep/0 p-5 transition-colors duration-500 group-hover:bg-charcoal-deep/25">
                           <span className="translate-y-3 text-[11px] font-medium tracking-[0.2em] text-cream uppercase opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
                             {item.caption}

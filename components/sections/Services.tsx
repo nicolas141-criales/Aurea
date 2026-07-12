@@ -6,7 +6,9 @@ import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { services } from "@/lib/data";
 import { CharsTitle, FadeUp } from "@/components/ui/AnimatedText";
-import EditorialVisual from "@/components/visuals/EditorialVisual";
+import EditorialVisual, { PHOTO_POOL } from "@/components/visuals/EditorialVisual";
+
+const photoFor = (i: number) => PHOTO_POOL[i % PHOTO_POOL.length];
 
 export default function Services() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -61,7 +63,13 @@ export default function Services() {
             className="absolute inset-0 transition-opacity duration-500"
             style={{ opacity: active === i ? 1 : 0 }}
           >
-            <EditorialVisual variant={service.palette} className="h-full w-full" />
+            <EditorialVisual
+              variant={service.palette}
+              photo={photoFor(i)}
+              photoAlt={service.name}
+              sizes="260px"
+              className="h-full w-full"
+            />
           </div>
         ))}
       </div>
@@ -146,7 +154,13 @@ export default function Services() {
               transition={{ duration: 0.8, delay: (i % 3) * 0.08, ease: [0.19, 1, 0.22, 1] }}
               className="w-[76vw] max-w-[340px] shrink-0 snap-center"
             >
-              <EditorialVisual variant={service.palette} className="aspect-[4/5] w-full rounded-t-full">
+              <EditorialVisual
+                variant={service.palette}
+                photo={photoFor(i)}
+                photoAlt={service.name}
+                sizes="340px"
+                className="aspect-[4/5] w-full rounded-t-full"
+              >
                 <span className="absolute left-5 top-8 z-10 font-serif text-base text-charcoal/60">
                   {service.index}
                 </span>

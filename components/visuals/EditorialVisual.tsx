@@ -1,8 +1,10 @@
 import type { CSSProperties } from "react";
+import Image from "next/image";
 
 /**
- * Art-directed stand-ins for photography: layered gradient fields with film
- * grain, an optional arch silhouette (the brand motif) and thin line details.
+ * Art-directed visual block used across the site: either a real photo or a
+ * gradient stand-in when no photo is supplied, both wrapped in the same film
+ * grain, optional arch silhouette (the brand motif) and thin line details.
  * Deterministic per variant so the page composes like an edited shoot.
  */
 
@@ -25,6 +27,13 @@ const recipes: string[] = [
   "radial-gradient(120% 90% at 70% 20%, #faf1e6 0%, transparent 55%), radial-gradient(100% 90% at 10% 90%, #dcb587 0%, transparent 60%), linear-gradient(160deg, #f5eadf 0%, #eed9c2 60%, #ddc09b 100%)",
 ];
 
+/** Shared pool of real studio photography, reused across sections. */
+export const PHOTO_POOL = [
+  "/photos/eye-amber.jpg",
+  "/photos/eye-natural.jpg",
+  "/photos/eye-volume.jpg",
+];
+
 type Props = {
   variant?: number;
   className?: string;
@@ -33,6 +42,10 @@ type Props = {
   letter?: string;
   style?: CSSProperties;
   children?: React.ReactNode;
+  photo?: string;
+  photoAlt?: string;
+  sizes?: string;
+  priority?: boolean;
 };
 
 export default function EditorialVisual({
@@ -43,16 +56,31 @@ export default function EditorialVisual({
   letter,
   style,
   children,
+  photo,
+  photoAlt = "",
+  sizes = "480px",
+  priority = false,
 }: Props) {
   const background = recipes[variant % recipes.length];
   const dark = variant % recipes.length === 3;
+  const lightStroke = photo || dark;
 
   return (
     <div
       aria-hidden
       className={`grain relative overflow-hidden ${arch ? "rounded-t-full" : ""} ${className ?? ""}`}
-      style={{ background, ...style }}
+      style={photo ? style : { background, ...style }}
     >
+      {photo && (
+        <Image
+          src={photo}
+          alt={photoAlt}
+          fill
+          sizes={sizes}
+          priority={priority}
+          className="object-cover"
+        />
+      )}
       <div className="absolute inset-0 animate-drift-slow opacity-60 [background:radial-gradient(60%_50%_at_60%_40%,rgba(255,255,255,0.35),transparent_70%)]" />
       {arcs && (
         <svg
@@ -63,12 +91,12 @@ export default function EditorialVisual({
         >
           <path
             d="M60 420 C60 220 140 120 200 120 C260 120 340 220 340 420"
-            stroke={dark ? "rgba(245,234,223,0.35)" : "rgba(59,46,38,0.28)"}
+            stroke={lightStroke ? "rgba(245,234,223,0.4)" : "rgba(59,46,38,0.28)"}
             strokeWidth="1"
           />
           <path
             d="M100 440 C100 260 155 170 200 170 C245 170 300 260 300 440"
-            stroke={dark ? "rgba(245,234,223,0.22)" : "rgba(59,46,38,0.16)"}
+            stroke={lightStroke ? "rgba(245,234,223,0.26)" : "rgba(59,46,38,0.16)"}
             strokeWidth="1"
           />
         </svg>

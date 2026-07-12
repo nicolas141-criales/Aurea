@@ -152,7 +152,16 @@ export default function Hero() {
           className="absolute -left-10 top-10 h-full w-full rounded-t-full border border-rose/50"
         />
         <div data-depth="1.5" className="absolute inset-0">
-          <EditorialVisual variant={0} arch arcs className="h-full w-full shadow-luxe">
+          <EditorialVisual
+            variant={0}
+            arch
+            arcs
+            photo="/photos/eye-volume.jpg"
+            photoAlt="Signature volume lash set at AUREA GLOW"
+            sizes="460px"
+            priority
+            className="h-full w-full shadow-luxe"
+          >
             {/* backlit brand mark — the storefront sign */}
             <div className="absolute inset-x-0 top-[12%] z-10 flex justify-center">
               <Image
@@ -241,7 +250,15 @@ export default function Hero() {
           className="relative mx-auto mt-16 w-[72%] max-w-[300px] lg:hidden"
         >
           <div className="absolute -left-4 top-4 h-full w-full rounded-t-full border border-rose/50" />
-          <EditorialVisual variant={0} arch arcs className="aspect-[3/4.2] w-full shadow-luxe">
+          <EditorialVisual
+            variant={0}
+            arch
+            arcs
+            photo="/photos/eye-volume.jpg"
+            photoAlt="Signature volume lash set at AUREA GLOW"
+            sizes="300px"
+            className="aspect-[3/4.2] w-full shadow-luxe"
+          >
             <div className="absolute inset-x-0 top-[11%] z-10 flex justify-center">
               <Image
                 src="/brand/aurea-glow-monogram.png"

@@ -68,7 +68,16 @@ export default function Intro() {
         <div className="order-2 lg:order-1 lg:col-span-5">
           <div className="intro-visual relative aspect-[3/4] max-w-[520px] overflow-hidden">
             <div className="intro-visual-inner h-full w-full will-change-transform">
-              <EditorialVisual variant={2} letter="a" arcs className="h-full w-full" />
+              <EditorialVisual
+                variant={2}
+                letter="a"
+                arcs
+                photo="/photos/eye-amber.jpg"
+                photoAlt="Signature lash artistry at AUREA GLOW"
+                sizes="(max-width: 1024px) 100vw, 520px"
+                priority
+                className="h-full w-full"
+              />
             </div>
           </div>
           <FadeUp delay={0.2} className="mt-6 max-w-[520px]">

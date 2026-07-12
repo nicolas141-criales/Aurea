@@ -131,16 +131,20 @@ export function WordsReveal({
         whileInView="visible"
         viewport={{ once: true, amount: 0.5 }}
       >
-        {text.split(" ").map((word, i) => (
-          <motion.span
-            key={i}
-            aria-hidden
-            variants={reduced ? undefined : wordVariants}
-            className="inline-block will-change-transform"
-          >
-            {word}
-            {i < text.split(" ").length - 1 ? " " : ""}
-          </motion.span>
+        {text.split(" ").map((word, i, words) => (
+          // the space is a sibling text node, not nested inside the inline-block —
+          // a trailing space inside an inline-block's own formatting context gets
+          // collapsed to zero width by the browser and visually disappears.
+          <span key={i}>
+            <motion.span
+              aria-hidden
+              variants={reduced ? undefined : wordVariants}
+              className="inline-block will-change-transform"
+            >
+              {word}
+            </motion.span>
+            {i < words.length - 1 ? " " : ""}
+          </span>
         ))}
       </motion.span>
     </Tag>
