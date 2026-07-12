@@ -5,10 +5,10 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
+import Image from "next/image";
 import Magnetic from "@/components/ui/Magnetic";
 import { CharsTitle } from "@/components/ui/AnimatedText";
 import EditorialVisual from "@/components/visuals/EditorialVisual";
-import Monogram from "@/components/visuals/Monogram";
 import Sparkle from "@/components/visuals/Sparkle";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -153,9 +153,16 @@ export default function Hero() {
         />
         <div data-depth="1.5" className="absolute inset-0">
           <EditorialVisual variant={0} arch arcs className="h-full w-full shadow-luxe">
-            {/* backlit monogram — the storefront sign */}
-            <div className="absolute inset-x-0 top-[14%] z-10 flex justify-center">
-              <Monogram className="glow-drop h-28 w-28 text-glow xl:h-32 xl:w-32" strokeWidth={2.5} />
+            {/* backlit brand mark — the storefront sign */}
+            <div className="absolute inset-x-0 top-[12%] z-10 flex justify-center">
+              <Image
+                src="/brand/aurea-glow-monogram.png"
+                alt=""
+                width={573}
+                height={640}
+                sizes="200px"
+                className="glow-drop w-[38%] xl:w-[40%]"
+              />
             </div>
           </EditorialVisual>
         </div>
@@ -223,6 +230,29 @@ export default function Hero() {
           <a href="#studio" className="link-line text-[13px] font-medium tracking-[0.08em] text-charcoal/70">
             Discover the studio
           </a>
+        </motion.div>
+
+        {/* compact arch — the brand moment, phones & tablets only */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={ready ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 1.1, delay: 1.55, ease: [0.19, 1, 0.22, 1] }}
+          aria-hidden
+          className="relative mx-auto mt-16 w-[72%] max-w-[300px] lg:hidden"
+        >
+          <div className="absolute -left-4 top-4 h-full w-full rounded-t-full border border-rose/50" />
+          <EditorialVisual variant={0} arch arcs className="aspect-[3/4.2] w-full shadow-luxe">
+            <div className="absolute inset-x-0 top-[11%] z-10 flex justify-center">
+              <Image
+                src="/brand/aurea-glow-monogram.png"
+                alt=""
+                width={573}
+                height={640}
+                sizes="130px"
+                className="glow-drop w-[36%]"
+              />
+            </div>
+          </EditorialVisual>
         </motion.div>
       </div>
 

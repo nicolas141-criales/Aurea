@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import Magnetic from "@/components/ui/Magnetic";
-import Monogram from "@/components/visuals/Monogram";
 
 const links = [
   { label: "Studio", href: "#studio" },
@@ -52,7 +52,15 @@ export default function Navbar() {
       >
         <nav className="mx-auto flex max-w-[1600px] items-center justify-between px-6 py-5 md:px-12">
           <a href="#top" translate="no" className="flex items-center gap-3" aria-label="AUREA GLOW home">
-            <Monogram className="h-10 w-10 text-rosegold" strokeWidth={3.5} />
+            <Image
+              src="/brand/aurea-glow-monogram.png"
+              alt=""
+              width={573}
+              height={640}
+              priority
+              sizes="40px"
+              className="h-10 w-auto"
+            />
             <span className="flex flex-col leading-none">
               <span className="display text-xl tracking-[0.14em] text-charcoal">AUREA</span>
               <span className="mt-1 text-[9px] font-semibold tracking-[0.5em] text-gold uppercase">

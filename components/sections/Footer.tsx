@@ -1,10 +1,10 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { MapPin } from "lucide-react";
 import { studio } from "@/lib/data";
 import { FadeUp } from "@/components/ui/AnimatedText";
-import Monogram from "@/components/visuals/Monogram";
 
 /* minimal hand-drawn brand marks — lucide dropped its brand icons */
 const InstagramMark = () => (
@@ -41,7 +41,14 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-14 border-b border-ivory/10 pb-20 md:grid-cols-12">
           <div className="md:col-span-5">
             <FadeUp>
-              <Monogram className="glow-drop mb-8 h-16 w-16 text-glow" strokeWidth={3.5} />
+              <Image
+                src="/brand/aurea-glow-logo.png"
+                alt="AUREA GLOW Beauty Studio"
+                width={687}
+                height={800}
+                sizes="176px"
+                className="glow-drop mb-10 w-36 md:w-44"
+              />
               <p className="display max-w-[16ch] text-3xl leading-snug text-ivory/90 md:text-4xl">
                 A private beauty studio for lashes &amp; brows in the heart of <em>Miami</em>.
               </p>
