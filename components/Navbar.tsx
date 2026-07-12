@@ -52,7 +52,7 @@ export default function Navbar() {
       >
         <nav className="mx-auto flex max-w-[1600px] items-center justify-between px-6 py-5 md:px-12">
           <a href="#top" translate="no" className="flex items-center gap-3" aria-label="AUREA GLOW home">
-            <Monogram className="h-10 w-10 text-rosegold" strokeWidth={4} />
+            <Monogram className="h-10 w-10 text-rosegold" strokeWidth={3.5} />
             <span className="flex flex-col leading-none">
               <span className="display text-xl tracking-[0.14em] text-charcoal">AUREA</span>
               <span className="mt-1 text-[9px] font-semibold tracking-[0.5em] text-gold uppercase">
