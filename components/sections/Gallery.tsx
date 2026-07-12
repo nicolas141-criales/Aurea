@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { AtSign } from "lucide-react";
@@ -11,7 +12,14 @@ import Magnetic from "@/components/ui/Magnetic";
 
 gsap.registerPlugin(ScrollTrigger);
 
-type Item = { variant: number; ratio: string; arch?: boolean; letter?: string; caption: string };
+type Item = {
+  variant: number;
+  ratio: string;
+  arch?: boolean;
+  letter?: string;
+  caption: string;
+  photo?: string;
+};
 
 /* hand-distributed columns — masonry that stays deliberate, not random */
 const columns: Item[][] = [
@@ -22,8 +30,13 @@ const columns: Item[][] = [
   ],
   [
     { variant: 2, ratio: "aspect-[3/4.6]", letter: "a", caption: "Mauve studies" },
-    { variant: 7, ratio: "aspect-[4/3]", caption: "Champagne light" },
-    { variant: 0, ratio: "aspect-[3/4]", arch: true, caption: "The atelier arch" },
+    {
+      variant: 7,
+      ratio: "aspect-square",
+      caption: "Signature volume, in studio",
+      photo: "/gallery/lash-volume-cropped-v2.jpg",
+    },
+    { variant: 0, ratio: "aspect-[3/4]", arch: true, caption: "The studio arch" },
   ],
   [
     { variant: 5, ratio: "aspect-square", caption: "Powder & silk" },
@@ -107,12 +120,24 @@ export default function Gallery() {
                   >
                     <div className={`overflow-hidden ${item.arch ? "rounded-t-full" : "rounded-xl"}`}>
                       <div className="relative transition-transform duration-700 [transition-timing-function:cubic-bezier(0.19,1,0.22,1)] group-hover:scale-[1.06]">
-                        <EditorialVisual
-                          variant={item.variant}
-                          arch={item.arch}
-                          letter={item.letter}
-                          className={`w-full ${item.ratio}`}
-                        />
+                        {item.photo ? (
+                          <div className={`grain relative w-full ${item.ratio}`}>
+                            <Image
+                              src={item.photo}
+                              alt={item.caption}
+                              fill
+                              sizes="(max-width: 768px) 50vw, 33vw"
+                              className="object-cover"
+                            />
+                          </div>
+                        ) : (
+                          <EditorialVisual
+                            variant={item.variant}
+                            arch={item.arch}
+                            letter={item.letter}
+                            className={`w-full ${item.ratio}`}
+                          />
+                        )}
                         <span className="absolute inset-0 z-10 flex items-end bg-charcoal-deep/0 p-5 transition-colors duration-500 group-hover:bg-charcoal-deep/25">
                           <span className="translate-y-3 text-[11px] font-medium tracking-[0.2em] text-cream uppercase opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
                             {item.caption}

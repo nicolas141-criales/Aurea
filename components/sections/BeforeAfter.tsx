@@ -1,11 +1,11 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { MoveHorizontal } from "lucide-react";
 import { CharsTitle, FadeUp } from "@/components/ui/AnimatedText";
-import EyeLineArt from "@/components/visuals/EyeLineArt";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -64,18 +64,6 @@ export default function BeforeAfter() {
           scrollTrigger: { trigger: stage, start: "top 70%", once: true },
         }
       );
-      // lashes draw themselves in
-      gsap.fromTo(
-        stage.querySelectorAll(".lash-draw"),
-        { strokeDasharray: 1, strokeDashoffset: 1 },
-        {
-          strokeDashoffset: 0,
-          duration: 1.8,
-          stagger: 0.02,
-          ease: "power2.inOut",
-          scrollTrigger: { trigger: stage, start: "top 75%", once: true },
-        }
-      );
     }, stage);
 
     return () => {
@@ -123,24 +111,33 @@ export default function BeforeAfter() {
             style={{ "--x": 50 } as React.CSSProperties}
           >
             {/* before */}
-            <div className="grain absolute inset-0 bg-[linear-gradient(165deg,#f5eadf_0%,#eee0d0_100%)]">
-              <div className="flex h-full items-center justify-center p-10 md:p-16">
-                <EyeLineArt lashCount={9} lashLength={22} curl={0.12} strokeWidth={1.7} className="h-full max-h-[340px] w-auto opacity-80" />
-              </div>
-              <span className="eyebrow absolute left-6 top-6 text-charcoal/45 md:left-10 md:top-10">
+            <div className="grain absolute inset-0">
+              <Image
+                src="/results/before-eye.jpg"
+                alt="Before — natural lashes"
+                fill
+                sizes="(max-width: 768px) 100vw, 1024px"
+                className="object-cover"
+                priority
+              />
+              <span className="eyebrow absolute left-6 top-6 z-[1] text-cream/90 [text-shadow:0_1px_8px_rgba(0,0,0,0.4)] md:left-10 md:top-10">
                 Before
               </span>
             </div>
 
             {/* after — clipped by the handle position */}
             <div
-              className="grain absolute inset-0 bg-[linear-gradient(160deg,#ebd2c4_0%,#ce9584_60%,#b87f6a_100%)]"
+              className="grain absolute inset-0"
               style={{ clipPath: "inset(0 0 0 calc(var(--x) * 1%))" }}
             >
-              <div className="flex h-full items-center justify-center p-10 md:p-16">
-                <EyeLineArt lashCount={17} lashLength={46} curl={0.42} strokeWidth={2.1} className="h-full max-h-[340px] w-auto" />
-              </div>
-              <span className="eyebrow absolute right-6 top-6 text-charcoal/70 md:right-10 md:top-10">
+              <Image
+                src="/results/after-eye.jpg"
+                alt="After — signature volume set"
+                fill
+                sizes="(max-width: 768px) 100vw, 1024px"
+                className="object-cover"
+              />
+              <span className="eyebrow absolute right-6 top-6 z-[1] text-cream/90 [text-shadow:0_1px_8px_rgba(0,0,0,0.4)] md:right-10 md:top-10">
                 After — Volume Set
               </span>
             </div>
@@ -166,8 +163,8 @@ export default function BeforeAfter() {
 
         <FadeUp delay={0.2}>
           <p className="mx-auto mt-8 max-w-md text-center text-[13px] leading-relaxed text-charcoal/50">
-            Illustrative rendering of a volume transformation. Drag the handle — your results are
-            designed in person, never from a chart.
+            An actual AUREA GLOW volume set. Drag the handle — your results are designed in
+            person, never from a chart.
           </p>
         </FadeUp>
       </div>
